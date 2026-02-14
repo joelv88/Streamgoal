@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiment Jahan #2026</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.box {
+  background: rgba(255,255,255,0.2);
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  z-index: 2;
+}
+
+button {
+  padding: 12px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.yes {
+  background: #ff2e63;
+  color: white;
+}
+
+.no {
+  background: white;
+  color: #ff2e63;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Fish animation */
+.fish {
+  position: absolute;
+  font-size: 30px;
+  animation: swim 6s linear forwards;
+}
+
+@keyframes swim {
+  from {
+    transform: translateX(-10vw);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(110vw);
+    opacity: 0;
+  }
+}
+
+/* Hide YouTube player */
+#musicPlayer {
+  position: fixed;
+  width: 0;
+  height: 0;
+  border: 0;
+}
+</style>
+</head>
+
+<body>
+
+
+<div class="box" id="mainBox">
+  <h2>🧪 Experiment #2026</h2>
+  <p>
+    After Thorough research, emotional data analysis, and 7% sleep...<br><br>
+    I have reached one important scientific Conclusion.
+  </p>
+
+  <h3>Will you be my Valentine Nuss? ❤️</h3>
+
+  <button class="yes" onclick="success()">YES 💖</button>
+  <button class="no" onmouseover="moveNo()">NO 🙃</button>
+</div>
+
+<div class="box hidden" id="successBox">
+  <h2>💕 EXPERIMENT SUCCESSFUL 💕</h2>
+  <p>
+    ✔️ 100% chance of a great date<br>
+    ✔️ 500% You're Cringing and smiling<br>
+    ✔️ 750% Bengali fine shyt likes fish<br>
+    ✔️ 1000% Scientist extremely proud of outcome<br><br>
+    Ok ill see myself out 💕
+  </p>
+</div>
+
+<script>
+function moveNo() {
+  const button = document.querySelector(".no");
+  button.style.position = "absolute";
+  button.style.top = Math.random() * 80 + "%";
+  button.style.left = Math.random() * 80 + "%";
+}
+
+function success() {
+  document.getElementById("mainBox").classList.add("hidden");
+  document.getElementById("successBox").classList.remove("hidden");
+
+  setInterval(() => {
+    const fish = document.createElement("div");
+    fish.classList.add("fish");
+    fish.innerHTML = "🐟";
+    fish.style.top = Math.random() * 90 + "vh";
+    document.body.appendChild(fish);
+    setTimeout(() => fish.remove(), 6000);
+  }, 400);
+}
+</script>
+
+</body>
+</html>
